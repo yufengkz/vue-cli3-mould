@@ -1,4 +1,4 @@
-# h5-lanjinrong
+# vue-cli3 模版
 
 ## Project setup
 
