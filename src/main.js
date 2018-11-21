@@ -15,24 +15,24 @@ Vue.config.productionTip = false;
 let ajaxMethod = ["get", "post", "delete", "patch", "put"]; //patch 修改  post 添加  put 修改
 let api = {};
 ajaxMethod.forEach(method => {
-  //数组取值的两种方式
-  api[method] = (uri, data, config) => {
-    return new Promise(function(resolve, reject) {
-      axiosIns[method](uri, data, config).then(response => {
-        //请求成功
-        if (response.status === 200) {
-          resolve(response);
-        } else {
-          reject(response);
-        }
-      });
-    });
-  };
-});
+	//数组取值的两种方式
+	api[method] = (uri, data, config) => {
+		return new Promise(function (resolve, reject) {
+			axiosIns[method](uri, data, config).then(response => {
+				//请求成功
+				if (response.status === 200) {
+					resolve(response)
+				} else {
+					reject(response)
+				}
+			})
+		})
+	}
+})
 Vue.prototype.$axios = api;
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+	router,
+	store,
+	render: h => h(App)
+}).$mount("#app")

@@ -1,39 +1,39 @@
-import axios from 'axios';
-import md5 from 'js-md5';
-import { Base64 } from 'js-base64';
+import axios from 'axios'
+import md5 from 'js-md5'
+import { Base64 } from 'js-base64'
 
 let axiosIns = axios.create({
     baseURL: process.env.VUE_APP_API,
     timeout: 50000 // 请求超时时间
-});
+})
 
-axiosIns.defaults.headers.post['X-Requested-With'] = 'XMLHttpRequest';
-axiosIns.defaults.headers.get['X-Requested-With'] = 'XMLHttpRequest';
-axiosIns.defaults.responseType = 'json';
+axiosIns.defaults.headers.post['X-Requested-With'] = 'XMLHttpRequest'
+axiosIns.defaults.headers.get['X-Requested-With'] = 'XMLHttpRequest'
+axiosIns.defaults.responseType = 'json'
 
 axiosIns.interceptors.request.use(function(config) {
     //配置config
-    config.headers.Accept = '*/*';
-    config.headers['Content-Type'] = 'application/json;charset=UTF-8';
+    config.headers.Accept = '*/*'
+    config.headers['Content-Type'] = 'application/json;charset=UTF-8'
 
-    console.log(config.data);
+    console.log(config.data)
     //config.headers.System = 'vue'
-    const token = '';
-    let timestamp = parseInt(+new Date() / 1000);
-    config.headers.timestamp = timestamp;
-    config.headers.signature = sign(config.data, timestamp);
-    config.headers.token = token;
+    const token = ''
+    let timestamp = parseInt(+new Date() / 1000)
+    config.headers.timestamp = timestamp
+    config.headers.signature = sign(config.data, timestamp)
+    config.headers.token = token
 
-    return config;
+    return config
 });
 axiosIns.interceptors.response.use(function(response) {
-    let status = response.status;
+    let status = response.status
     if (status === 200) {
-        return Promise.resolve(response);
+        return Promise.resolve(response)
     }
-    return Promise.reject(response);
+    return Promise.reject(response)
 
-});
+})
 
 // header签名
 function sign(body, timestamp) {
@@ -48,4 +48,4 @@ function sign(body, timestamp) {
     return sign
 }
 
-export default axiosIns;
+export default axiosIns
