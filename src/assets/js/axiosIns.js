@@ -37,7 +37,15 @@ axiosIns.interceptors.response.use(function(response) {
 
 // header签名
 function sign(body, timestamp) {
-
+    let salt = {
+        H5: ''
+    }
+    let token = ''
+    // token逻辑
+    let str = ''
+    body && Object.keys(body).sort().forEach(key => str += key + body[key])
+    let sign = md5(Base64.encode(String(timestamp)) + token + salt.H5 + str)
+    return sign
 }
 
 export default axiosIns
