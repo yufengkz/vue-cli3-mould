@@ -1,4 +1,4 @@
-# vue-cli3 贷款超市
+# vue-cli3 
 
 ## Project setup
 
@@ -24,7 +24,7 @@ yarn run build
 yarn run lint
 ```
 
-### Vue-cli3 贷款超市
+### Vue-cli3 
 
 1.UI框架：mesuUI
 2.多环境，dev、test、uat、production
