@@ -1,4 +1,4 @@
-# vue-cli3 模版
+# vue-cli3 贷款超市
 
 ## Project setup
 
@@ -24,8 +24,9 @@ yarn run build
 yarn run lint
 ```
 
-### Vue-cli3 模板
+### Vue-cli3 贷款超市
 
-1.无 UI 框架 2.多环境，dev、test、uat、production
+1.UI框架：mesuUI
+2.多环境，dev、test、uat、production
 
 ### Axios 配置

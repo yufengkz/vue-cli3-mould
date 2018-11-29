@@ -16,7 +16,6 @@ axiosIns.interceptors.request.use(function(config) {
     config.headers.Accept = '*/*'
     config.headers['Content-Type'] = 'application/json;charset=UTF-8'
 
-    console.log(config.data)
     //config.headers.System = 'vue'
     const token = ''
     let timestamp = parseInt(+new Date() / 1000)
@@ -38,7 +37,7 @@ axiosIns.interceptors.response.use(function(response) {
 // header签名
 function sign(body, timestamp) {
     let salt = {
-        H5: '4c77e2945b5bd2cecf8dd983ee7531d98d9565f1'
+        H5: ''
     }
     let token = ''
     // token逻辑
