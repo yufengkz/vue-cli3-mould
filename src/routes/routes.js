@@ -16,7 +16,7 @@ let otherRouter = [
 	},
 	{
 		name: 'about',
-		component: () => import('../views/About.vue'),
+		component: () => import('../views/About.vue').catch(/*do something*/),
 		title: 'About'
 	},
 ]
